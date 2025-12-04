@@ -55,6 +55,7 @@
 
 # # Ask the user to enter any fruit name  and check if it is present in fruits list or not if it is present then print "kiwi is present at 4 location" otherwise "kiwi is not present"
 
+print("hello")
 
 # fname = input("Enter fruit name")
 # f = 0
