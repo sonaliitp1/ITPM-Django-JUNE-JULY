@@ -1,0 +1,40 @@
+
+# --- Virtual Environment ---
+myenv/
+.venv/
+env/
+.env/
+ENV/
+
+# --- Python Bytecode Files ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Distribution / Packaging ---
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- IDE / Editor Files ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Environment / Secret Files ---
+.env
+*.env
+*.env.*
+
+# --- Logs and Django/Flask Cache ---
+*.log
+*.sqlite3
+db.sqlite3
+*.pyc
+
+# --- Migrations (Optional) ---
+# Uncomment if you don't want to track migrations
+# */migrations/
+
