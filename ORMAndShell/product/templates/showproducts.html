@@ -10,6 +10,7 @@
       <th scope="col">Product Name</th>
       <th scope="col">Catergory</th>
       <th scope="col">Stock</th>
+      <th scope="col" colspan="2">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,8 @@
       <td>{{i.pname}}</td>
       <td>{{i.category}}</td>
       <td>{{i.stock}}</td>
+      <td><a href="{% url 'edit' i.pid %}" class="btn btn-primary">Edit</a></td>
+      <td><a href="{% url 'delete' i.pid %}" class="btn btn-danger">Delete</a></td>
     </tr>
     {% endfor %}
     </tbody>

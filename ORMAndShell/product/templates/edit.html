@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="w-50 m-auto p-3 mt-3">
+    <h3 class="text-warning">Edit Product Details</h3>
+<form action="{% url 'add' %}" method="POST">
+    {% csrf_token %}
+
+    <div class="mb-3">
+    <label  class="form-label">Product Id</label>
+    <input type="number" class="form-control" placeholder="enter product id" name="pid" value={{obj.pid}} readonly>
+    </div>
+
+     <div class="mb-3">
+    <label  class="form-label">Product Name</label>
+    <input type="text" class="form-control" placeholder="enter product name" name="pname" value={{obj.pname}}>
+    </div>
+
+     <div class="mb-3">
+    <label  class="form-label">Category</label>
+    <input type="text" class="form-control" placeholder="enter category" name="category" value={{obj.category}}>
+    </div>
+
+     <div class="mb-3">
+    <label  class="form-label">Stock</label>
+    <input type="number" class="form-control" placeholder="enter stock" name="stock" value="{{obj.stock}}">
+    </div>
+
+    <div>
+        <input type="submit" class="btn btn-success" value="Edit product">
+    </div>
+
+
+</form>
+</div>
+
+
+
+{% endblock %}
