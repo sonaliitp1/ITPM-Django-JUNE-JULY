@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from .models import cars
 
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+
+    obj = cars.objects.all()
+    return render(request,'home.html',{'obj':obj})

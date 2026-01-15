@@ -1,14 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
+
 <body>
-    <h1>Home Page....</h1>
-    <p>Serving static files application</p>
+    <div class="container">
+
+
+        <div class="row g-4">
+            {% for i in obj %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 ">
+
+
+                <!-- cards code starts here -->
+                <div class="card h-100" >
+                    <img src={{i.cimage.url}} class="card-img-top img-fluid c1">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.cname}}</h5>
+                        <p class="card-text">Hyundai offers a diverse range of Hyundai cars, from stylish Hyundai
+                            hatchback cars and comfortable Hyundai sedan cars to powerful Hyundai SUVs cars, each
+                            designed for performance, safety, and innovation. Leading the way in sustainable mobility,
+                            Hyundai electric cars provide eco-friendly
+                        </p>
+                        <br>
+                        <div class="container text-center">
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <!--cards code end -->
+
+             </div> <!-- col div -->
+            {% endfor %}
+
+        </div> <!-- row div -->
+
+
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
