@@ -1,0 +1,16 @@
+{% comment %} <h2>Register</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>  {% endcomment %}
+
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <br>
+    <button type="submit">Save</button>
+</form>
