@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% for i in object_list %}
+    
+    <p><strong>Emp Id :-</strong>{{i.empid}} <span><strong><a href="{% url 'empdetail' i.empid %}">Show Employee by Id</a> &nbsp;&nbsp;<a href="{% url 'empdetail' i.empid %}">Update Employee</a> &nbsp; &nbsp; <a href="{% url 'empdetail' i.empid %}">Delete Employee</a></strong></span></p>
+    
+
+    {% endfor %}
+</body>
+</html>

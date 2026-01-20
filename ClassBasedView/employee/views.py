@@ -2,14 +2,16 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from django.views.generic import TemplateView
+from django.views.generic import ListView
+from django.views.generic import DetailView
+from django.views.generic import UpdateView
+from django.views.generic import DeleteView
+
 from .models import Employee
-
-
 # Create your views here.
-
 class HomeView(View):
     def get(self,request):
-        return HttpResponse("Hello Students")
+        return render(request,'employee/show.html')
 
     def post(self,request):
         name = request.POST.get("name")
@@ -25,7 +27,19 @@ class ShowView(TemplateView):
         context["name"] ="ABC"
         context["age"] = 20
         return context
-        
-# def home(request):
-#      return HttpResponse("Hello Students")
+
+class EmpListView(ListView):
+    model = Employee
+    # context_object_name = 'obj'
+    # template_name='emplist.html'
+
+
+class EmpDetailView(DetailView):
+    model = Employee
+   
+class EmpUpdateView(UpdateView):
+    model =Employee
+
+class EmpDeleteView(DeleteView):
+    model =Employee
 
