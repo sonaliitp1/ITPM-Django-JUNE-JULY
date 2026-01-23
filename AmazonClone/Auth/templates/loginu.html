@@ -44,6 +44,12 @@
 
 <div class="container d-flex align-items-center justify-content-center min-vh-100">
     <div class="card login-card shadow-sm p-4">
+  {% if error %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Error :-</strong> {{error}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>
+   {% endif %}
         
         <!-- Logo -->
         <div class="text-center mb-3">
@@ -52,24 +58,25 @@
                  width="100">
         </div>
 
-        <h2 class="mb-3">Sign in</h2>
+        <h2 class="mb-3">Login</h2>
 
-        <form>
+        <form action="{% url 'loginu' %}" method="POST">
+            {% csrf_token %}
             <!-- Email -->
             <div class="mb-3">
-                <label class="form-label fw-semibold">Email or mobile phone number</label>
-                <input type="email" class="form-control" required>
+                <label class="form-label fw-semibold">Email or Username</label>
+                <input type="text" name="username" class="form-control" required autocomplete="off">
             </div>
 
             <!-- Password -->
             <div class="mb-3">
                 <label class="form-label fw-semibold">Password</label>
-                <input type="password" class="form-control" required>
+                <input type="password" name="password" class="form-control" required autocomplete="off">
             </div>
 
             <!-- Login Button -->
             <button type="submit" class="btn btn-amazon w-100 mb-3">
-                Sign in
+                Login
             </button>
 
             <!-- Terms -->
