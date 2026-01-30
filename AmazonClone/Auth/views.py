@@ -46,3 +46,4 @@ def registeru(request):
 def logoutu(request):
     logout(request)
     return redirect("loginu")
+
