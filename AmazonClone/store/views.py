@@ -1,6 +1,7 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render,redirect
 
-from store.models import Category, Product
+from store.models import Category, Product,Cart
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -18,3 +19,27 @@ def category_products(request, id):
         'category': category
     })
     
+
+@login_required
+def add_to_cart(request, id):
+    product = get_object_or_404(Product, id=id)
+
+    cart_item, created = Cart.objects.get_or_create(
+        user=request.user,
+        product=product
+    )
+
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    return redirect("cart") 
+
+@login_required
+def cart_view(request):
+    cart_items = Cart.objects.filter(user=request.user)
+    total = sum(item.product.price * item.quantity for item in cart_items)
+    return render(request, 'cart.html', {
+        'cart_items': cart_items,
+        'total': total
+    })
+
