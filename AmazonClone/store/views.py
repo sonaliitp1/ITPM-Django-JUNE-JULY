@@ -43,3 +43,27 @@ def cart_view(request):
         'total': total
     })
 
+@login_required
+def remove_from_cart(request, id):
+    Cart.objects.filter(id=id, user=request.user).delete()
+    return redirect('cart')
+
+
+@login_required
+def increase_qty(request, id):
+    
+    item = get_object_or_404(Cart, id=id, user=request.user)
+    item.quantity += 1
+    item.save()
+    return redirect('cart')
+
+
+@login_required
+def decrease_qty(request, id):
+    item = get_object_or_404(Cart, id=id, user=request.user)
+    if item.quantity > 1:
+        item.quantity -= 1
+        item.save()
+    else:
+        item.delete()
+    return redirect('cart')
