@@ -46,6 +46,16 @@ class OrderItem(models.Model):
 
 
 
+class ShippingAddress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    order = models.OneToOneField(Order, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15)
+    address = models.TextField()
+    city = models.CharField(max_length=50)
+    pincode = models.CharField(max_length=10)
 
+    def __str__(self):
+        return self.full_name
 
     

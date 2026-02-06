@@ -134,3 +134,6 @@ STATICFILES_DIRS=[
 ]
 
 STATIC_URL = 'static/'
+
+RAZORPAY_KEY_ID ="rzp_test_SCjh0ElcR8kptR"
+RAZORPAY_KEY_SECRET ="JQ7Vzoq7ztmDrvaJ7Lv4f4vD"

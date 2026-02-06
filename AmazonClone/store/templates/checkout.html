@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="text-center">Checkout</h3>
+
+<br>
+
+<form method="post" class="w-50 m-auto">
+    {% csrf_token %}
+
+    <input class="form-control mb-2" name="full_name" placeholder="Full Name" required>
+    <input class="form-control mb-2" name="phone" placeholder="Phone" required>
+    <textarea class="form-control mb-2" name="address" placeholder="Address" required></textarea>
+    <input class="form-control mb-2" name="city" placeholder="City" required>
+    <input class="form-control mb-2" name="pincode" placeholder="Pincode" required>
+    <br>
+    <br>
+    <h5>Total: ₹{{ total }}</h5>
+    <br>
+    <br>
+
+    <button class="btn btn-success">Proceed to Pay</button>
+</form>
+
+{% endblock %}
