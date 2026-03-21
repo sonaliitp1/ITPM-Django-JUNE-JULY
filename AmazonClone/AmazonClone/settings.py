@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y7mf546j78$l%ckt=p1=gao6d=id8p_qs@!v(x7b3pv8^61os_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -133,6 +134,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_ROOT = BASE_DIR /'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS=[
     BASE_DIR / "static"
@@ -140,5 +142,5 @@ STATICFILES_DIRS=[
 
 STATIC_URL = 'static/'
 
-RAZORPAY_KEY_ID ="rzp_test_SCjh0ElcR8kptR"
-RAZORPAY_KEY_SECRET ="JQ7Vzoq7ztmDrvaJ7Lv4f4vD"
+RAZORPAY_KEY_ID ="rzp_test_SJTDYOCDlZx8AS"
+RAZORPAY_KEY_SECRET ="eKR7MDL7mZox7wMnp6NKDDiI"
