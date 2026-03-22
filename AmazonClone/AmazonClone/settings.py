@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -80,15 +81,22 @@ WSGI_APPLICATION = 'AmazonClone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#         'ENGINE': 'django.db.backends.mysql',   # Use 'django.db.backends.mysql' for MySQL
+#         'NAME': 'amazon',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',     # or IP address
+#         'PORT': '3306',          # default MySQL port
+#     }
+# }
+
 DATABASES = {
-   'default': {
-        'ENGINE': 'django.db.backends.mysql',   # Use 'django.db.backends.mysql' for MySQL
-        'NAME': 'amazon',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',     # or IP address
-        'PORT': '3306',          # default MySQL port
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600
+    )
 }
 
 
