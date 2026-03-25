@@ -24,10 +24,10 @@ jobs:
 
     - name: Run Migrations
       run: |
-        cd ORMandShell
+        cd ORMAndShell
         python manage.py migrate
 
     - name: Run Server Check
       run: |
-        cd ORMandShell
+        cd ORMAndShell
         python manage.py check
