@@ -26,6 +26,8 @@ jobs:
       run: |
         cd ORMAndShell
         python manage.py migrate
+      env:
+        CI: true
 
     - name: Run Server Check
       run: |
