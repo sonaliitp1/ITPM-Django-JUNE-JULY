@@ -29,6 +29,16 @@ def dashboard(request):
 
     # return render(request,'Dashboard.html')
 
+def services(request):
+     if request.session.get('is_logged_in'):
+        username = request.session.get('username')
+        return render(request, "services.html", {"username": username})
+     else:
+        return render(request,"login.html",{"error":"Please Login First..."})
+
+     
+
+
 def logoutu(request):
      request.session.flush()   # Clears entire session
      return redirect("loginu")
